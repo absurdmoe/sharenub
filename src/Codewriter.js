@@ -19,6 +19,7 @@ class Codewriter extends Component {
         }
     }
     componentDidMount(){
+        console.log(this.props.channel)
         this.pubnubexecute();
     }
     pubnubexecute(){
@@ -27,7 +28,7 @@ class Codewriter extends Component {
         let js;
 
         pubnub.subscribe({
-            channels: ['collab']
+            channels: [this.props.channel]
         })
         
         pubnub.addListener({
@@ -47,6 +48,7 @@ class Codewriter extends Component {
               let myframe = document.createElement('iframe');
               myframe.src = "about:blank";
               myframe.id = "frame";
+
               executionWrapper.innerHTML = "";
               executionWrapper.appendChild(myframe);
    
@@ -75,7 +77,7 @@ class Codewriter extends Component {
             message: {
                 html, css, js,
             },
-            channel: 'collab'
+            channel: this.props.channel
         }).then((response) => {
             console.log(response)
         }).catch((error) => {
