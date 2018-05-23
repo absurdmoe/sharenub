@@ -1,0 +1,27 @@
+.code-holder{
+    display: flex;
+}
+.code-writer{
+    border: 4px solid white;
+    background: rgb(50,50,50);
+    color: white;
+    width: 40vw;
+    min-height: 200px;
+}
+.code-executer{
+    border: 4px solid black;
+    background: white;
+    width: 40vw;
+    min-height: 80vh;
+}
+.code-editor{
+    resize: none;
+    height: 60vh;
+    width: 90%;
+    margin-left: 5%;
+    background: transparent;
+}
+.frame{
+    height: 80vh;
+    width: 100%;
+}
