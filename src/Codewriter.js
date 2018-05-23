@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import PubNub from 'pubnub';
 import { Button } from 'react-bootstrap';
 import Editornavigation from './Editornavigation';
+const key = require('./key.js');
 
 
 let pubnub = new PubNub({
-    subscribeKey: "sub-c-9fccfcb8-5e27-11e8-94f8-7233e189f8a9",
-    publishKey: "pub-c-d6cb434b-5c82-4ae1-8f14-dc364968f06f"
+    subscribeKey: key.pubnub.subscribe_key,
+    publishKey:  key.pubnub.publish_key
   })
 
   
@@ -26,6 +27,18 @@ class Codewriter extends Component {
         let html;
         let css;
         let js;
+console.log(29)
+        pubnub.history(
+            {
+                channel: 'dogs',
+                count: 100, //will retrieve latest message
+                function (status, response) {
+                    console.log('loading history...');
+                    console.log(status)
+                    console.log(response)
+                }  
+        })
+        console.log(40)
 
         pubnub.subscribe({
             channels: [this.props.channel]
