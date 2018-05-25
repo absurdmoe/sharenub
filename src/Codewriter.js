@@ -27,18 +27,18 @@ class Codewriter extends Component {
         let html;
         let css;
         let js;
-console.log(29)
-        pubnub.history(
-            {
-                channel: 'dogs',
-                count: 100, //will retrieve latest message
-                function (status, response) {
-                    console.log('loading history...');
-                    console.log(status)
-                    console.log(response)
-                }  
-        })
-        console.log(40)
+// console.log(29)
+//         pubnub.history(
+//             {
+//                 channel: 'dogs',
+//                 count: 100, //will retrieve latest message
+//                 function (status, response) {
+//                     console.log('loading history...');
+//                     console.log(status)
+//                     console.log(response)
+//                 }  
+//         })
+//         console.log(40)
 
         pubnub.subscribe({
             channels: [this.props.channel]
